@@ -3,10 +3,6 @@ from django.core.validators import RegexValidator
 from django.core.exceptions import ValidationError
 # Create your models here.
 
-# def only_numeric_house_numbers(value):
-#     pass
-
-
 class Contact(models.Model):
     name = models.CharField(max_length=50, default=None)
 
@@ -27,3 +23,6 @@ class Contact(models.Model):
     def save(self, *args, **kwargs):
         self.full_clean()
         super(Contact, self).save(*args, **kwargs)
+    
+    class Meta:
+        unique_together = ('name', 'phone_number')
