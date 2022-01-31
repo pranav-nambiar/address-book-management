@@ -6,5 +6,6 @@ router = DefaultRouter()
 router.register(r'addresses', views.AddressViewSet)
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('addresses/filter/', views.FilteredView.as_view()),
+    path('', include(router.urls)),
 ]
