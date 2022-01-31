@@ -20,3 +20,6 @@ class Address(models.Model):
     def save(self, *args, **kwargs):
         self.full_clean()
         super(Address, self).save(*args, **kwargs)
+
+    class Meta:
+        unique_together = ('name', 'phone_number')
